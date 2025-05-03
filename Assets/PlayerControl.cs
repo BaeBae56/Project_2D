@@ -31,7 +31,7 @@ public class PlayerControl : MonoBehaviour
     {
         // Use to collect way to run between 1(right) or -1(left)
         float inputXAxis = Input.GetAxis("Horizontal");
-        _rb.velocity = new Vector2(inputXAxis * _speed, _rb.velocity.y);
+        _rb.linearVelocity = new Vector2(inputXAxis * _speed, _rb.linearVelocity.y);
         if (inputXAxis > 0.01f)
         {
             transform.localScale = Vector3.one;
@@ -63,7 +63,7 @@ public class PlayerControl : MonoBehaviour
         // When Player on the Groud, Player will reset jump 
         if (_hit.collider != null)
         {
-            if (_hit.collider.CompareTag("Ground")) ;
+            if (_hit.collider.CompareTag("Ground"))
             {
                 Debug.Log("Rerest Jump");
                 _isJump = true;
@@ -96,6 +96,6 @@ public class PlayerControl : MonoBehaviour
     private void Jump()
     {
   
-        _rb.velocity = new Vector2(_rb.velocity.x, _jumpPower); // Jump
+        _rb.linearVelocity = new Vector2(_rb.linearVelocity.x, _jumpPower); // Jump
     }
 }

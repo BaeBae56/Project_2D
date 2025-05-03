@@ -39,7 +39,7 @@ public class Character2D : MonoBehaviour
 
         }
 
-        if (Input.GetButtonDown("Jump") && Mathf.Abs(_rigidbody.velocity.y) < 0.001f ) 
+        if (Input.GetButtonDown("Jump") && Mathf.Abs(_rigidbody.linearVelocity.y) < 0.001f ) 
         { 
             _rigidbody.AddForce(new Vector2(0 , JumpForce), ForceMode2D.Impulse);
             _animator.SetTrigger("Jump");

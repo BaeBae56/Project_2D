@@ -14,10 +14,9 @@ public class Projectile : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             // แปลงตำแหน่งเมาส์ในจอ เป็นตำแหน่งในโลก 2D;
-            /*Camera cam = GetComponentInChildren<Camera>();
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            Debug.DrawRay(ray.origin, ray.direction * 5f, Color.magenta, 5f);
+            Debug.DrawRay(ray.origin, ray.direction * 10f, Color.magenta, 10f);
 
             RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
 
@@ -34,9 +33,9 @@ public class Projectile : MonoBehaviour
                 Rigidbody2D firedBullet = Instantiate(bulletPrefab, shootPoint.position, Quaternion.identity);
 
                 // ใส่ความเร็วให้กระสุน
-                firedBullet.velocity = projectileVelocity;
+                firedBullet.linearVelocity = projectileVelocity;
 
-            }//hit*/
+            }//hit
 
         }//GetMouseButtonDown
 
