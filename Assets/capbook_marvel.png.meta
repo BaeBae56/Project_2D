@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      capbook_marvel_0: 8167096168427224999
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
