@@ -68,7 +68,8 @@ public class Character2D : MonoBehaviour
         if (collision.CompareTag("win"))
         {
             WINTEXT.gameObject.SetActive(true);
-            
+            Time.timeScale = 0f;
+
         }
         Debug.Log("Trigger the Player");
     }
