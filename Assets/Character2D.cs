@@ -1,12 +1,16 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Character2D : MonoBehaviour
 {
     // Start is called before the first frame update
     public float MovementSpeed = 1;
     public float JumpForce = 1;
+    public TextMeshProUGUI WINTEXT;
+
 
     private Rigidbody2D _rigidbody;
     private Animator _animator;
@@ -26,12 +30,12 @@ public class Character2D : MonoBehaviour
         if (movement > 0.01f)
         {
             transform.localScale = Vector3.one;
-            
+
         }
         else if (movement < -0.01f)
         {
             transform.localScale = new Vector3(-1, 1, 1);
-            
+
 
         }
         else if (movement == 0f)
@@ -39,9 +43,9 @@ public class Character2D : MonoBehaviour
 
         }
 
-        if (Input.GetButtonDown("Jump") && Mathf.Abs(_rigidbody.linearVelocity.y) < 0.001f ) 
-        { 
-            _rigidbody.AddForce(new Vector2(0 , JumpForce), ForceMode2D.Impulse);
+        if (Input.GetButtonDown("Jump") && Mathf.Abs(_rigidbody.linearVelocity.y) < 0.001f)
+        {
+            _rigidbody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
             _animator.SetTrigger("Jump");
         }
 
@@ -52,10 +56,24 @@ public class Character2D : MonoBehaviour
             _animator.SetBool("Slide", true);
             MovementSpeed = 11;
         }
-        else 
+        else
         {
             _animator.SetBool("Slide", false);
             MovementSpeed = 8;
         }
+
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("win"))
+        {
+            WINTEXT.gameObject.SetActive(true);
+            
+        }
+        Debug.Log("Trigger the Player");
+    }
+
+
+
+
 }
